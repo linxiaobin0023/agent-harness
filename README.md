@@ -97,7 +97,7 @@ project/
 
 ## 🤖 Claude Code 配置
 
-把仓库作为 Claude Code 当前工作目录打开，并确保以下目录存在：
+把.claude 里的文件放到用户目录（比如win：C:\Users\xxx\.claude）
 
 - `.claude/CLAUDE.md`
 - `.claude/skills/`
