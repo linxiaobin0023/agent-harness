@@ -94,6 +94,10 @@ project/
 
 Claude Code 会优先读取 `.claude/CLAUDE.md` 作为总调度入口。
 
+## 🧭 Cursor 配置
+
+Cursor 专属配置放在 `.cursor/` 目录下，详细说明见 `.cursor/SETUP.md`。
+
 ## 🤝 参与贡献
 
 - 先更新对应文档
