@@ -6,20 +6,15 @@ param(
 $ErrorActionPreference = "Stop"
 
 function Select-Mode {
-    Write-Host "请选择要安装的模板版本："
-    Write-Host "  1. 精简版（min）"
-    Write-Host "  2. 全量版（full）"
-    $choice = Read-Host "请输入 1 或 2"
+    Write-Host "Choose a template package:"
+    Write-Host "  1. Minimal (min)"
+    Write-Host "  2. Full (full)"
+    $choice = Read-Host "Enter 1 or 2"
 
-    if ($choice -eq "1") {
-        return "min"
-    }
+    if ($choice -eq "1") { return "min" }
+    if ($choice -eq "2") { return "full" }
 
-    if ($choice -eq "2") {
-        return "full"
-    }
-
-    Write-Host "输入无效，已退出。"
+    Write-Host "Invalid input. Exiting."
     exit 1
 }
 
@@ -32,7 +27,7 @@ if ($Mode -ne "min" -and $Mode -ne "full") {
     exit 1
 }
 
-Write-Host "当前选择的模板版本：$Mode"
+Write-Host "Selected mode: $Mode"
 
 if ($Mode -eq "min") {
     $versionFileName = "releases/min/version.json"
@@ -47,13 +42,14 @@ $templateUrl = "$TemplateBaseUrl/$templateFileName"
 $versionFile = Join-Path $env:TEMP "agent-harness-$Mode-version.json"
 $templateFile = Join-Path $env:TEMP "agent-harness-$Mode-template.zip"
 
-Write-Host "正在下载模板元数据..."
+Write-Host "Downloading version metadata..."
 Invoke-WebRequest -Uri $versionUrl -OutFile $versionFile
+Write-Host "Downloading template package..."
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFile
 
-Write-Host "正在解压模板..."
+Write-Host "Extracting template..."
 Expand-Archive -Path $templateFile -DestinationPath (Get-Location) -Force
 
-Write-Host "安装完成。"
-Write-Host "当前模式：$Mode"
-Write-Host "请先打开 Cursor 并阅读 .cursor/CURSOR.md。"
+Write-Host "Installation complete."
+Write-Host "Mode: $Mode"
+Write-Host "Open Cursor and read .cursor/CURSOR.md first."

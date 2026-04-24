@@ -5,14 +5,14 @@ MODE="${1:-}"
 TEMPLATE_BASE_URL="${TEMPLATE_BASE_URL:-https://raw.githubusercontent.com/linxiaobin0023/agent-harness/main}"
 
 if [[ -z "$MODE" ]]; then
-  echo "请选择要安装的模板版本："
-  echo "  1. 精简版（min）"
-  echo "  2. 全量版（full）"
-  read -rp "请输入 1 或 2: " choice
+  echo "Choose a template package:"
+  echo "  1. Minimal (min)"
+  echo "  2. Full (full)"
+  read -rp "Enter 1 or 2: " choice
   case "$choice" in
     1) MODE="min" ;;
     2) MODE="full" ;;
-    *) echo "输入无效，已退出。"; exit 1 ;;
+    *) echo "Invalid input. Exiting."; exit 1 ;;
   esac
 fi
 
@@ -25,7 +25,7 @@ case "$MODE" in
     ;;
 esac
 
-echo "当前选择的模板版本：$MODE"
+echo "Selected mode: $MODE"
 
 case "$MODE" in
   min)
@@ -44,12 +44,13 @@ TMP_DIR="$(mktemp -d)"
 VERSION_FILE="$TMP_DIR/$(basename "$VERSION_FILE_NAME")"
 TEMPLATE_FILE="$TMP_DIR/$(basename "$TEMPLATE_FILE_NAME")"
 
-echo "正在下载模板元数据..."
+echo "Downloading version metadata..."
 curl -fsSL "$VERSION_URL" -o "$VERSION_FILE"
+echo "Downloading template package..."
 curl -fsSL "$TEMPLATE_URL" -o "$TEMPLATE_FILE"
-echo "正在解压模板..."
+echo "Extracting template..."
 unzip -o "$TEMPLATE_FILE" -d .
 
-echo "安装完成。"
-echo "当前模式：$MODE"
-echo "请先打开 Cursor 并阅读 .cursor/CURSOR.md。"
+echo "Installation complete."
+echo "Mode: $MODE"
+echo "Open Cursor and read .cursor/CURSOR.md first."
