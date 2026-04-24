@@ -15,11 +15,11 @@
 
 ## 规则拆分
 
-- `rules/trigger-rules.md`：触发判断规则
-- `rules/stage-rules.md`：阶段执行规则
-- `rules/review-rules.md`：审查规则
-- `rules/commit-rules.md`：提交与推送规则
-- `rules/feedback-rules.md`：反馈与进化规则
+- `rules/trigger-rules.mdc`：触发判断规则
+- `rules/stage-rules.mdc`：阶段执行规则
+- `rules/review-rules.mdc`：审查规则
+- `rules/commit-rules.mdc`：提交与推送规则
+- `rules/feedback-rules.mdc`：反馈与进化规则
 
 ## 使用方式
 
