@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1800" viewBox="0 0 2400 1800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="45%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399" />
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
+    </marker>
+    <style>
+      .title { fill: #f8fafc; font: 800 52px 'Microsoft YaHei', 'SimHei', sans-serif; text-anchor: middle; }
+      .subtitle { fill: #cbd5e1; font: 400 22px 'Microsoft YaHei', 'SimHei', sans-serif; text-anchor: middle; }
+      .section { fill: #94a3b8; font: 700 20px 'Microsoft YaHei', 'SimHei', sans-serif; text-anchor: middle; letter-spacing: 1px; }
+      .box { fill: rgba(15, 23, 42, 0.92); stroke: #60a5fa; stroke-width: 3.5; rx: 24; ry: 24; filter: url(#shadow); }
+      .box2 { fill: rgba(15, 23, 42, 0.92); stroke: #34d399; stroke-width: 3.5; rx: 24; ry: 24; filter: url(#shadow); }
+      .box3 { fill: rgba(15, 23, 42, 0.92); stroke: #f59e0b; stroke-width: 3.5; rx: 24; ry: 24; filter: url(#shadow); }
+      .text { fill: #e2e8f0; font: 700 24px 'Microsoft YaHei', 'SimHei', sans-serif; text-anchor: middle; }
+      .small { fill: #cbd5e1; font: 400 18px 'Microsoft YaHei', 'SimHei', sans-serif; text-anchor: middle; }
+      .note { fill: #f8fafc; font: 700 18px 'Microsoft YaHei', 'SimHei', sans-serif; text-anchor: middle; }
+      .lineBlue { stroke: #38bdf8; stroke-width: 5; fill: none; marker-end: url(#arrowBlue); }
+      .lineGreen { stroke: #34d399; stroke-width: 5; fill: none; marker-end: url(#arrowGreen); }
+      .lineOrange { stroke: #f59e0b; stroke-width: 5; fill: none; marker-end: url(#arrowOrange); }
+      .thin { stroke-width: 4; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="2400" height="1800" fill="url(#bgGrad)"/>
+  <rect x="120" y="110" width="2160" height="8" fill="url(#accentGrad)" opacity="0.95"/>
+
+  <text class="title" x="1200" y="78">Agent Harness 执行流程图</text>
+  <text class="subtitle" x="1200" y="140">文档驱动 · 分阶段推进 · 审查闭环 · 反馈进化</text>
+
+  <text class="section" x="260" y="220">调度层</text>
+  <text class="section" x="1120" y="220">引导层</text>
+  <text class="section" x="2060" y="220">执行 / 反馈层</text>
+
+  <!-- Top flow -->
+  <rect class="box" x="120" y="260" width="250" height="118"/>
+  <text class="text" x="245" y="304">用户输入</text>
+  <text class="small" x="245" y="334">需求 / 想法 / 修改</text>
+
+  <rect class="box2" x="430" y="260" width="250" height="118"/>
+  <text class="text" x="555" y="304">需求收集</text>
+  <text class="small" x="555" y="334">product-spec-builder</text>
+
+  <rect class="box2" x="740" y="260" width="250" height="118"/>
+  <text class="text" x="865" y="304">设计规范</text>
+  <text class="small" x="865" y="334">design-brief-builder</text>
+
+  <rect class="box2" x="1050" y="260" width="250" height="118"/>
+  <text class="text" x="1175" y="304">设计图 / 原型</text>
+  <text class="small" x="1175" y="334">design-maker</text>
+
+  <rect class="box2" x="1360" y="260" width="250" height="118"/>
+  <text class="text" x="1485" y="304">开发计划</text>
+  <text class="small" x="1485" y="334">dev-planner</text>
+
+  <rect class="box2" x="1670" y="260" width="250" height="118"/>
+  <text class="text" x="1795" y="304">Task 实现</text>
+  <text class="small" x="1795" y="334">dev-builder / implementer</text>
+
+  <path class="lineBlue" d="M 370 319 L 422 319"/>
+  <path class="lineBlue" d="M 680 319 L 732 319"/>
+  <path class="lineBlue" d="M 990 319 L 1042 319"/>
+  <path class="lineBlue" d="M 1300 319 L 1352 319"/>
+  <path class="lineBlue" d="M 1610 319 L 1662 319"/>
+
+  <!-- Review section -->
+  <rect class="box3" x="500" y="610" width="320" height="130"/>
+  <text class="text" x="660" y="660">代码审查</text>
+  <text class="small" x="660" y="692">code-review / code-reviewer</text>
+  <text class="small" x="660" y="718">功能一致性 + 代码质量</text>
+
+  <rect class="box3" x="890" y="610" width="320" height="130"/>
+  <text class="text" x="1050" y="660">审查通过？</text>
+  <text class="small" x="1050" y="692">否 → 修复再审 | 是 → 发布</text>
+
+  <path class="lineOrange" d="M 1795 378 C 1795 505 660 495 660 610"/>
+
+  <path class="lineOrange" d="M 820 675 L 890 675"/>
+  <text class="note" x="855" y="650">审查</text>
+
+  <!-- Fix / release / feedback -->
+  <rect class="box" x="1260" y="610" width="300" height="130"/>
+  <text class="text" x="1410" y="660">问题修复</text>
+  <text class="small" x="1410" y="692">bug-fixer</text>
+  <text class="small" x="1410" y="718">修一个点，再回到审查</text>
+
+  <rect class="box2" x="1620" y="610" width="300" height="130"/>
+  <text class="text" x="1770" y="660">构建 / 发布</text>
+  <text class="small" x="1770" y="692">release-builder</text>
+  <text class="small" x="1770" y="718">打包、交付、发布</text>
+
+  <rect class="box2" x="1980" y="610" width="300" height="130"/>
+  <text class="text" x="2130" y="660">反馈记录</text>
+  <text class="small" x="2130" y="692">feedback-observer</text>
+  <text class="small" x="2130" y="718">记录用户与审查反馈</text>
+
+  <path class="lineGreen" d="M 1210 675 L 1260 675"/>
+  <text class="note" x="1235" y="650">是</text>
+  <path class="lineGreen" d="M 1560 675 L 1620 675"/>
+  <path class="lineGreen" d="M 1920 675 L 1980 675"/>
+
+  <path class="lineBlue" d="M 1410 740 L 1410 820 L 660 820 L 660 740"/>
+  <text class="note" x="1035" y="848">否：修复后回到审查</text>
+
+  <rect class="box" x="880" y="960" width="640" height="150"/>
+  <text class="text" x="1200" y="1034">进化扫描</text>
+  <text class="small" x="1200" y="1068">evolution-runner</text>
+  <text class="small" x="1200" y="1098">生成规则升级建议，更新 FEEDBACK-LOG / EVOLUTION</text>
+
+  <path class="lineOrange" d="M 2130 740 L 2130 910 L 1520 910 L 1520 980"/>
+
+  <rect class="box3" x="720" y="1230" width="960" height="170"/>
+  <text class="text" x="1200" y="1292">流程回流到需求阶段</text>
+  <text class="small" x="1200" y="1330">反馈沉淀后，下一轮从需求 / 设计 / 计划重新进入闭环</text>
+  <text class="small" x="1200" y="1360">这是一个持续迭代的开发操作系统，而不是一次性流程</text>
+
+  <path class="lineOrange" d="M 1200 1110 L 1200 1210"/>
+  <path class="lineOrange" d="M 720 1295 L 420 1295 L 420 430 L 245 430"/>
+  <text class="note" x="430" y="1240">循环回流</text>
+</svg>
