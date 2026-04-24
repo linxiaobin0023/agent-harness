@@ -29,20 +29,20 @@ echo "当前选择的模板版本：$MODE"
 
 case "$MODE" in
   min)
-    VERSION_FILE_NAME="version-min.json"
-    TEMPLATE_FILE_NAME="template-min.zip"
+    VERSION_FILE_NAME="releases/min/version.json"
+    TEMPLATE_FILE_NAME="releases/min/template.zip"
     ;;
   full)
-    VERSION_FILE_NAME="version-full.json"
-    TEMPLATE_FILE_NAME="template-full.zip"
+    VERSION_FILE_NAME="releases/full/version.json"
+    TEMPLATE_FILE_NAME="releases/full/template.zip"
     ;;
 esac
 
 VERSION_URL="$TEMPLATE_BASE_URL/$VERSION_FILE_NAME"
 TEMPLATE_URL="$TEMPLATE_BASE_URL/$TEMPLATE_FILE_NAME"
 TMP_DIR="$(mktemp -d)"
-VERSION_FILE="$TMP_DIR/$VERSION_FILE_NAME"
-TEMPLATE_FILE="$TMP_DIR/$TEMPLATE_FILE_NAME"
+VERSION_FILE="$TMP_DIR/$(basename "$VERSION_FILE_NAME")"
+TEMPLATE_FILE="$TMP_DIR/$(basename "$TEMPLATE_FILE_NAME")"
 
 echo "正在下载模板元数据..."
 curl -fsSL "$VERSION_URL" -o "$VERSION_FILE"

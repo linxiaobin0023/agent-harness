@@ -10,6 +10,15 @@
 
 Agent Harness 是一套**通用开发流程框架**，用于把 AI 辅助开发从“零散对话”变成“有阶段、有审查、有反馈”的工程闭环。
 
+## 🖼️ 执行流程图
+
+<div align="center">
+
+![Agent Harness 执行流程图](assets/execution-flow.png)
+
+</div>
+
+> 这张图展示了本仓库的完整执行闭环：需求、设计、计划、实现、审查、修复、发布、反馈与进化。
 ## 🖼️ 启动后的项目图
 
 <div align="center">
