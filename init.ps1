@@ -5,8 +5,13 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$Ansi = [char]27
+function Write-Stage([string]$Stage, [string]$Message, [string]$ColorCode) {
+    Write-Host "$Ansi[$ColorCode m[$Stage] $Message$Ansi[0m"
+}
+
 function Select-Mode {
-    Write-Host "Choose a template package:"
+    Write-Stage "SELECT" "Choose a template package:" "36"
     Write-Host "  1. Minimal (min)"
     Write-Host "  2. Full (full)"
     $choice = Read-Host "Enter 1 or 2"
@@ -14,7 +19,7 @@ function Select-Mode {
     if ($choice -eq "1") { return "min" }
     if ($choice -eq "2") { return "full" }
 
-    Write-Host "Invalid input. Exiting."
+    Write-Stage "ERROR" "Invalid input. Exiting." "31"
     exit 1
 }
 
@@ -23,11 +28,11 @@ if ([string]::IsNullOrWhiteSpace($Mode)) {
 }
 
 if ($Mode -ne "min" -and $Mode -ne "full") {
-    Write-Host "Usage: powershell -ExecutionPolicy Bypass -File .\init.ps1 [-Mode min|full]"
+    Write-Stage "ERROR" "Usage: powershell -ExecutionPolicy Bypass -File .\init.ps1 [-Mode min|full]" "31"
     exit 1
 }
 
-Write-Host "Selected mode: $Mode"
+Write-Stage "SELECT" "Selected mode: $Mode" "36"
 
 if ($Mode -eq "min") {
     $versionFileName = "releases/min/version.json"
@@ -41,15 +46,20 @@ $versionUrl = "$TemplateBaseUrl/$versionFileName"
 $templateUrl = "$TemplateBaseUrl/$templateFileName"
 $versionFile = Join-Path $env:TEMP "agent-harness-$Mode-version.json"
 $templateFile = Join-Path $env:TEMP "agent-harness-$Mode-template.zip"
+$cursorDir = Join-Path (Get-Location) ".cursor"
 
-Write-Host "Downloading version metadata..."
+Write-Stage "DOWNLOAD" "Downloading version metadata..." "33"
 Invoke-WebRequest -Uri $versionUrl -OutFile $versionFile
-Write-Host "Downloading template package..."
+Write-Stage "DOWNLOAD" "Downloading template package..." "33"
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFile
 
-Write-Host "Extracting template..."
-Expand-Archive -Path $templateFile -DestinationPath (Get-Location) -Force
+if (-not (Test-Path $cursorDir)) {
+    New-Item -ItemType Directory -Path $cursorDir | Out-Null
+}
 
-Write-Host "Installation complete."
-Write-Host "Mode: $Mode"
-Write-Host "Open Cursor and read .cursor/CURSOR.md first."
+Write-Stage "EXTRACT" "Extracting template into .cursor..." "32"
+Expand-Archive -Path $templateFile -DestinationPath $cursorDir -Force
+
+Write-Stage "DONE" "Installation complete." "32"
+Write-Stage "DONE" "Mode: $Mode" "32"
+Write-Stage "DONE" "Open Cursor and read .cursor/CURSOR.md first." "32"
