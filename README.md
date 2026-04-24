@@ -2,7 +2,7 @@
 
 # Agent Harness
 
-[📌 项目简介](#-项目简介) · [⚡ 快速开始](#-快速开始) · [🤖 Claude Code 配置](#-claude-code-配置) · [⌨️ 指令集](#-指令集) · [🤝 参与贡献](#-参与贡献)
+[📌 项目简介](#-项目简介) · [⚡ 快速开始](#-快速开始) · [🤖 Claude Code 配置](#-claude-code-配置) · [🧭 Cursor 配置](#-cursor-配置) · [⌨️ 指令集](#-指令集) · [🤝 参与贡献](#-参与贡献)
 
 </div>
 
@@ -10,19 +10,13 @@
 
 Agent Harness 是一套**通用开发流程框架**，用于把 AI 辅助开发从“零散对话”变成“有阶段、有审查、有反馈”的工程闭环。
 
-## 🖼️ 执行流程图
+## 🖼️ 启动后的项目图
 
 <div align="center">
 
-![Agent Harness 执行流程图](assets/execution-flow.png)
+![Agent Harness Banner](assets/image.png)
 
 </div>
-
-> 这张图展示了本仓库的完整执行闭环：需求、设计、计划、实现、审查、修复、发布、反馈与进化。
-
-
-## 🖼️ 启动后的项目图
-![Agent Harness Banner](assets/image.png)
 
 ## ✨ 主要能力
 
@@ -66,6 +60,9 @@ project/
 ├── DEV-PLAN.md
 ├── DEV-PLAN-CHANGELOG.md
 ├── README.md
+├── WORKFLOW.md
+├── LICENSE
+├── .cursor/
 └── .claude/
     ├── CLAUDE.md
     ├── feedback/
@@ -107,7 +104,7 @@ Cursor 专属配置放在 `.cursor/` 目录下，详细说明见 `.cursor/SETUP.
 
 ## 📄 许可证
 
-本项目暂未指定许可证。若你准备公开发布，建议补充合适的开源许可证文件。
+本项目采用 **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)** 许可证。
 
 ## 📍 当前状态
 
